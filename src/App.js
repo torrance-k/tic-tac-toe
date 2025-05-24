@@ -75,9 +75,10 @@ export default function Game() {
     } else {
       description = 'Go to game start';
     }
+    let moveIsCurrentMove = move === currentMove
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        {moveIsCurrentMove ? <div>You are at move #{move} </div> : <button onClick={() => jumpTo(move)}>{description}</button>}
       </li>
     );
   });
